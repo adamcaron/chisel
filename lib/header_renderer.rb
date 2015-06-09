@@ -8,13 +8,10 @@ class HeaderRenderer
     "h5" => "#####",
     "h6" => "######"
   }
-
+  # Instead of passing a group of chunked strings, the chunker passes one header at a time
+  # so, here, 'chunked_strings' can be renamed to 'header'.
   def initialize(chunked_strings)
     @chunked_strings = chunked_strings
-  end
-
-  def find_headers
-    @chunked_strings.select { |string| string.match(/^\#{1,6} /) }
   end
 
   def transform
