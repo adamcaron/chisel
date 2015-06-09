@@ -13,6 +13,11 @@ class HeaderRenderer
   def initialize(chunked_strings)
     @chunked_strings = chunked_strings
   end
+  # classifier/identifier/locator will be a task of chunker,
+  # this responsibility will be removed from HeaderRenderer and given to Chunker
+  def find_headers
+    @chunked_strings.select { |string| string.match(/^\#{1,6} /) }
+  end
 
   def transform
     find_headers.each do |header|

@@ -2,6 +2,12 @@ require_relative 'test_helper'
 require_relative '../lib/header_renderer'
 
 class TestHeaderRenderer < Minitest::Test
+  # identification happens in the chunker
+  # so HeaderRenderer will be relieved of this responsibility
+  def test_it_identifies_octothorpes
+    chunked_document = HeaderRenderer.new(["# Here's a header", "Not a header"])
+    assert_equal ["# Here's a header"], chunked_document.find_headers
+  end
 
   def test_it_transforms_one_octothorpe_into_an_h1
     chunked_document = HeaderRenderer.new(["# Here's My Title"])

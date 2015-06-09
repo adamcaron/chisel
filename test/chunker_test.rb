@@ -6,19 +6,24 @@ class ChunkerTest < Minitest::Test
     chunker = Chunker.new("first line\n\nsecond line")
     assert_equal ["first line", "second line"], chunker.split_doc
   end
-  def test_it_identifies_a_paragraph
 
+  def test_it_identifies_a_paragraph
+    skip
+    chunked_document = ParagraphRenderer.new(["# Here's a header", "Not a header"])
+    assert_equal ["# Here's a header"], chunked_document.find_headers
   end
-  # identification happens in the chunker
-  # so HeaderRenderer will be relieved of this responsibility
-  def test_it_identifies_octothorpes
+
+  def test_it_identifies_a_header
+    skip
     chunked_document = HeaderRenderer.new(["# Here's a header", "Not a header"])
     assert_equal ["# Here's a header"], chunked_document.find_headers
   end
+
   def test_it_distinguishes_between_different_chunk_types
     skip
     # determine the chunk's type (ie. header or list or paragraph)
   end
+
   def test_it_passes_chunks_to_their_respective_renderers
     skip
   end

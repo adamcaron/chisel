@@ -7,7 +7,6 @@ class TestParagraphRenderer < Minitest::Test
   end
 
   def test_it_transforms_a_single_line_to_one_paragraph
-
     input_text = "This is the first line of the paragraph."
     expected_text = <<-EOS
 <p>
