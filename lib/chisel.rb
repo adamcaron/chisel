@@ -1,9 +1,6 @@
-require_relative 'renderer'
+require_relative 'chunker'
 
-# Get the markdown document
 doc = File.read(ARGV[0])
-
-# Pass the string to render.rb
-renderer = Renderer.new(doc)
+chunker = Chunker.new(doc)
 
 # Takes what render returned and outputs it as one HTML file

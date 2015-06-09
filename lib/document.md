@@ -1,3 +1,3 @@
-# This is the Header
+# This is the header!
 
-This is my favorite paragraph ever. It's such a nice paragraph.
+Here's a paragraph.
