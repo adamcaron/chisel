@@ -16,11 +16,11 @@ class TestHeaderRenderer < Minitest::Test
 
   def test_it_transforms_one_octothorpe_into_h1
     renderer = HeaderRenderer.new
-    assert_equal "<h1>Here's My Title</h1>", renderer.transform("# Here's My Title")
+    assert_equal "<h1>Here's My Title</h1>\n\n", renderer.transform("# Here's My Title")
   end
 
   def test_it_transforms_two_octothorpes_into_h2
     renderer = HeaderRenderer.new
-    assert_equal "<h2>Here's an h2 Subheader</h2>", renderer.transform("## Here's an h2 Subheader")
+    assert_equal "<h2>Here's an h2 Subheader</h2>\n\n", renderer.transform("## Here's an h2 Subheader")
   end
 end

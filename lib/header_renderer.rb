@@ -8,7 +8,7 @@ class HeaderRenderer
     characters_to_drop = number_of_hashes(chunk) + 1
     header_tag = "h#{number_of_hashes(chunk)}"
     content = chunk[characters_to_drop..-1]
-    "<#{header_tag}>" + content + "</#{header_tag}>"
+    "<#{header_tag}>" + content + "</#{header_tag}>\n\n"
   end
 
   private
