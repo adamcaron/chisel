@@ -6,15 +6,15 @@ class TestHeaderRenderer < Minitest::Test
     assert HeaderRenderer.new.handles?("# Here's a header")
   end
 
-  def test_it_doesnt_handle_lines_without_a_hash
+  def test_it_doesnt_handle_lines_without_an_octothorpe
     refute HeaderRenderer.new.handles?("Not a header")
   end
 
-  def test_it_doesnt_handle_mid_line_hashes
+  def test_it_doesnt_handle_mid_line_octothorpes
     refute HeaderRenderer.new.handles?("Just a # paragraph")
   end
 
-  def test_it_transforms_one_octothorpe_into_an_h1
+  def test_it_transforms_one_octothorpe_into_h1
     renderer = HeaderRenderer.new
     assert_equal "<h1>Here's My Title</h1>", renderer.transform("# Here's My Title")
   end
