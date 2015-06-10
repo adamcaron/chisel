@@ -1,19 +1,19 @@
 class ParagraphRenderer
-  def initialize(text)
-    @text = text
+  def handles?(chunk)
+    true
   end
 
-  def transform
+  def transform(chunk)
     <<-EOS
 <p>
-    #{formatted_text}
+    #{formatted_text(chunk)}
 </p>
 EOS
   end
 
   private
 
-  def formatted_text
-    @text.chomp.gsub("\n", "<br>\n    ")
+  def formatted_text(chunk)
+    chunk.chomp.gsub("\n", "\n    ")
   end
 end
