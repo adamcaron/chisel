@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path("../../lib", __FILE__))
+require "chisel"
+
+input = File.read(ARGV[0])
+output = File.open(ARGV[1], 'w')
+output.write(Chisel.new.parse(input))
