@@ -1,6 +1,12 @@
 require 'chunker'
+require 'header_renderer'
+require 'paragraph_renderer'
 
-doc = File.read(ARGV[0])
-chunker = Chunker.new(doc)
-
-# Takes what joiner returned and outputs it as one HTML file
+class Chisel
+  def parse(markdown)
+    Chunker.new(markdown, [
+      HeaderRenderer.new,
+      ParagraphRenderer.new
+    ]).result
+  end
+end
