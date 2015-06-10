@@ -1,25 +1,23 @@
 class Chunker
   attr_reader :split_doc
 
-  def initialize(doc)
-    @split_doc = doc.split("\n\n")
+  def initialize(doc, renderers)
+    @doc = doc
+    @renderers = renderers
+  end
 
-    # determine the chunk's type (ie. header or list or paragraph)
-    # and pass it to it's respective renderer.
+  def result
+    chunks = @doc.split("\n\n")
+    parsed_chunks = chunks.map do |chunk|
+      renderer = renderer_for(chunk)
+      renderer.transform(chunk)
+    end
+    parsed_chunks.join
+  end
 
-    # @split_doc.each do |chunk|
-    #   if chunk[0] == "#"
-    #     HeaderRender.new(chunk).transform
-    #   else
-    #   if chunk[0]
-    #     ParagrapghRenderer.new(chunk).transform
-    #   end
-    # end
+  private
 
-    # ["hi mom", "## Some heading"]
-    # paragraphed = ParagraphRender.new(headerized).transform
-    # ["<p>hi mom</p>"]
-    # headerized = HeaderRender.new(@split_doc).transform
-    # listified = ListRenderer.new(paragraphed).transform
+  def renderer_for(chunk)
+    @renderers.find { |r| r.handles?(chunk) }
   end
 end
