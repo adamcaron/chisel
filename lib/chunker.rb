@@ -1,6 +1,4 @@
 class Chunker
-  attr_reader :split_doc
-
   def initialize(doc, renderers)
     @doc = doc
     @renderers = renderers
