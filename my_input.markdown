@@ -4,9 +4,10 @@
 
 ### Here's the Third Level Header
 
-Here's a paragraph. Here's some text in that paragraph. Drew is the fucking man.
-Mike rules the universe of Wheat Ridge.
+Here's a paragraph. Here's some text in that paragraph. This text makes this paragraph rather long: multiple lines long, even!
 
 Another paragraph.
 
 This paragraph has *emphasized text*!!!
+
+This one has **bold text**!
