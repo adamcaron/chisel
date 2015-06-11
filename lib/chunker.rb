@@ -9,8 +9,7 @@ class Chunker
   end
 
   def result
-    chunks = doc.split("\n\n")
-    parsed_chunks = chunks.map do |chunk|
+    parsed_chunks = chunk(doc).map do |chunk|
       renderer = renderer_for(chunk)
       transformed = renderer.transform(chunk)
       formatted = strong.transform(transformed)
@@ -23,5 +22,9 @@ class Chunker
 
   def renderer_for(chunk)
     renderers.find { |r| r.handles?(chunk) }
+  end
+
+  def chunk(doc)
+    doc.split("\n\n")
   end
 end
