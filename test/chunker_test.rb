@@ -2,11 +2,10 @@ require './test/test_helper'
 require './lib/chunker'
 
 class ChunkerTest < Minitest::Test
-  def test_it_splits_a_md_doc_into_chunks
-  end
-
   def test_it_renders_md_headers_to_html
-    skip
+    doc = "One paragraph\n\nAnother paragraph"
+    result = Chunker.new(doc, [HeaderRenderer.new, ParagraphRenderer.new], EmphasisRenderer.new, StrongRenderer.new ).result
+    assert_equal ["One paragraph", "Another paragraph"], result
   end
 
   def test_it_renders_md_paragraphs_to_html
