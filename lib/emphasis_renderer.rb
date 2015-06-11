@@ -4,7 +4,7 @@ class EmphasisRenderer
   end
 
   def transform(chunk)
-    while chunk.include?("*")
+    while handles?(chunk)
       chunk.sub!("*", "<em>")
       chunk.sub!("*", "</em>")
     end
