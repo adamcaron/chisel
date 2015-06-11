@@ -1,5 +1,5 @@
-require_relative 'test_helper'
-require_relative '../lib/header_renderer'
+require './test/test_helper'
+require './lib/header_renderer'
 
 class TestHeaderRenderer < Minitest::Test
   def test_it_handles_lines_that_start_with_hash

@@ -1,5 +1,5 @@
-require_relative 'test_helper'
-require_relative '../lib/chunker'
+require './test/test_helper'
+require './lib/chunker'
 
 class ChunkerTest < Minitest::Test
 
