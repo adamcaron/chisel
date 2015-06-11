@@ -20,6 +20,7 @@ class EmphasisRendererTest < Minitest::Test
   end
 
   def test_it_differentiates_between_emphasis_and_strong
-    skip
+    # while includes **, sub em
+    # while includes *, sub strong
   end
 end
