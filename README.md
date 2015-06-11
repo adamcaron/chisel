@@ -1,9 +1,9 @@
-https://github.com/JumpstartLab/curriculum/blob/master/source/projects/chisel.markdown
-
 ---
 layout: page
 title: Chisel
 ---
+
+https://github.com/JumpstartLab/curriculum/blob/master/source/projects/chisel.markdown
 
 ## Introduction
 
