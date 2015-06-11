@@ -7,7 +7,7 @@ class ParagraphRenderer
     <<-EOS
 <p>
     #{formatted_text(chunk)}
-</p>
+</p>\n
 EOS
   end
 

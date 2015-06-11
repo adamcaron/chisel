@@ -8,6 +8,8 @@ Here's a paragraph. Here's some text in that paragraph. This text makes this par
 
 Another paragraph.
 
+### Another 3rd level header
+
 This paragraph has *emphasized text*!!!
 
 This one has **bold text**!

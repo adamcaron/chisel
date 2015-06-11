@@ -11,7 +11,7 @@ class TestParagraphRenderer < Minitest::Test
     expected_text = <<-EOS
 <p>
     This is the first line of the paragraph.
-</p>
+</p>\n
 EOS
     assert_equal expected_text, ParagraphRenderer.new.transform(input_text)
   end
@@ -21,7 +21,7 @@ EOS
     expected_text = <<-EOS
 <p>
     This is the first line of the paragraph. This is the second line of the same paragraph.
-</p>
+</p>\n
 EOS
     assert_equal expected_text, ParagraphRenderer.new.transform(input_text)
   end
