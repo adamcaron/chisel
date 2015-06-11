@@ -7,10 +7,12 @@ class EmphasisRendererTest < Minitest::Test
   end
 
   def test_it_handles_chunks_with_emphasis
+    skip
     assert EmphasisRenderer.new.handles?("<h2>Some *Awesome* Title</h2>"), "It should accept strings with markdown *emphasis*"
   end
 
-  def test_it_handles_chunks_with_emphasis
+  def test_it_doesnr_handle_chunks_without_emphasis
+    skip
     refute EmphasisRenderer.new.handles?("<h2>Just a Header</h2>"), "It shouldn't receive/handle/accept chunks without *emphasis*"
   end
 
