@@ -2,6 +2,7 @@ require 'chunker'
 require 'header_renderer'
 require 'paragraph_renderer'
 require 'emphasis_renderer'
+require 'strong_renderer'
 
 class Chisel
   def parse(markdown)
@@ -9,6 +10,8 @@ class Chisel
       HeaderRenderer.new,
       ParagraphRenderer.new
       ],
-      EmphasisRenderer.new).result
+      EmphasisRenderer.new,
+      StrongRenderer.new
+      ).result
   end
 end

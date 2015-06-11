@@ -1,10 +1,11 @@
 class Chunker
-  attr_reader :doc, :renderers, :emphasis
+  attr_reader :doc, :renderers, :emphasis, :strong
 
-  def initialize(doc, renderers, emphasis)
+  def initialize(doc, renderers, emphasis, strong)
     @doc = doc
     @renderers = renderers
     @emphasis = emphasis
+    @strong = strong
   end
 
   def result
@@ -12,7 +13,8 @@ class Chunker
     parsed_chunks = chunks.map do |chunk|
       renderer = renderer_for(chunk)
       transformed = renderer.transform(chunk)
-      emphasis.transform(transformed)
+      formatted = strong.transform(transformed)
+      emphasis.transform(formatted)
     end
     parsed_chunks.join
   end
