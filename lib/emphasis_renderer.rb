@@ -1,7 +1,7 @@
 class EmphasisRenderer
-  # def handles?(chunk)
-  #   chunk.include?("*")
-  # end
+  def handles?(chunk)
+    chunk.include?("*")
+  end
 
   def transform(chunk)
     count = 0
