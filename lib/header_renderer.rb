@@ -5,16 +5,25 @@ class HeaderRenderer
   end
 
   def transform(chunk)
-    characters_to_drop = number_of_hashes(chunk) + 1
-    header_tag = "h#{number_of_hashes(chunk)}"
-    content = chunk[characters_to_drop..-1]
-    "<#{header_tag}>" + content + "</#{header_tag}>\n\n"
+    "<#{header_tag(chunk)}>" + header_content(chunk) + "</#{header_tag(chunk)}>\n\n"
   end
 
   private
 
   def number_of_hashes(chunk)
     chunk.chars.take_while { |char| char == '#' }.length
+  end
+
+  def characters_to_drop(chunk)
+    number_of_hashes(chunk) + 1
+  end
+
+  def header_tag(chunk)
+    "h#{number_of_hashes(chunk)}"
+  end
+
+  def header_content(chunk)
+    chunk[characters_to_drop(chunk)..-1]
   end
 
   def first_character_after_hashes(chunk)

@@ -6,14 +6,14 @@ class Chunker
     @renderers = renderers
     @emphasis = emphasis
     @strong = strong
+    @transformed_chunk
   end
 
   def result
     parsed_chunks = chunk(doc).map do |chunk|
-      renderer = renderer_for(chunk)
-      transformed = renderer.transform(chunk)
-      formatted = strong.transform(transformed)
-      emphasis.transform(formatted)
+      transform_chunk(chunk)
+      make_strong
+      make_emphasis
     end
     parsed_chunks.join
   end
@@ -22,6 +22,18 @@ class Chunker
 
   def renderer_for(chunk)
     renderers.find { |r| r.handles?(chunk) }
+  end
+
+  def transform_chunk(chunk)
+    @transformed_chunk = renderer_for(chunk).transform(chunk)
+  end
+
+  def make_strong
+    @transformed_chunk = strong.transform(@transformed_chunk)
+  end
+
+  def make_emphasis
+    @transformed_chunk = emphasis.transform(@transformed_chunk)
   end
 
   def chunk(doc)
