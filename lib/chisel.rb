@@ -6,12 +6,12 @@ require 'strong_renderer'
 
 class Chisel
   def parse(markdown)
-    Chunker.new(markdown, [
-      HeaderRenderer.new,
-      ParagraphRenderer.new
-      ],
-      EmphasisRenderer.new,
-      StrongRenderer.new
-      ).result
+    Chunker.new(markdown,
+                [ HeaderRenderer.new,
+                  ParagraphRenderer.new
+                ],
+                  EmphasisRenderer.new,
+                  StrongRenderer.new
+                ).result
   end
 end

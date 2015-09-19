@@ -20,12 +20,16 @@ class Chunker
 
   private
 
-  def renderer_for(chunk)
-    renderers.find { |r| r.handles?(chunk) }
+  def chunk(doc)
+    doc.split("\n\n")
   end
 
   def transform_chunk(chunk)
     @transformed_chunk = renderer_for(chunk).transform(chunk)
+  end
+
+  def renderer_for(chunk)
+    renderers.find { |r| r.handles?(chunk) }
   end
 
   def make_strong
@@ -34,9 +38,5 @@ class Chunker
 
   def make_emphasis
     @transformed_chunk = emphasis.transform(@transformed_chunk)
-  end
-
-  def chunk(doc)
-    doc.split("\n\n")
   end
 end
